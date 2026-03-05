@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agent Portal – Sign in</title>
+  <meta name="description" content="Demo agent portal login page (no real data)." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="Company logo" width="32" height="32" />
+        <span class="brand-name">OneStop Insurance</span>
+      </div>
+      <nav aria-label="Utility">
+        <ul class="util">
+          <li>
+           
+            <select id="lang" name="lang" aria-label="Select language">
+              <option selected>English</option>
+              <option>Español</option>
+              <option>Français</option>
+            </select>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="container">
+    <section class="card">
+      <h1>Agent Login</h1>
+      <form id="loginForm" novalidate>
+        <div class="field">
+          <label for="email">Work Email<span aria-hidden="true">*</span></label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="username" required placeholder="you@example.com" />
+        </div>
+        <div class="field">
+          <label for="password">Password<span aria-hidden="true">*</span></label>
+          <div class="password-wrap">
+            <input id="password" name="password" type="password" autocomplete="current-password" minlength="1" required />
+            <button type="button" class="link" id="togglePw" aria-controls="password" aria-pressed="false">Show</button>
+          </div>
+        </div>
+        <div class="field checkbox">
+          <input type="checkbox" id="agree" name="agree" required />
+          <label for="agree">I have read and acknowledge the <a href="terms.html" target="_blank" rel="noopener">Terms of Use</a> and <a href="privacy.html" target ="_blank" rel="noopener">Privacy Policy</a>.</label>
+        </div>
+       
+        <div class="actions">
+          <button type="submit" class="btn" id="loginBtn">Login</button>
+          <a class="btn btn-secondary" href="#" id="createAccount">Create Account</a>
+        </div>
+        <p class="small"><a href="#" id="forgot">I forgot my password</a></p>
+      </form>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <nav aria-label="Footer">
+        <ul class="footer-links">
+          <li><a href="terms.html">Terms and Conditions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+        </ul>
+      </nav>
+      <p class="muted small">© <span id="year"></span> OneStop Insurance.</p>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
