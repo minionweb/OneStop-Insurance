@@ -70,7 +70,8 @@
       <div class="field"><label for="cem">Contact Email*</label><input id="cem" type="email" placeholder="you@example.com" required><p class="error-text" id="cem_err"></p></div>
       <div class="field"><label for="cem2">Confirm Contact Email*</label><input id="cem2" type="email" placeholder="you@example.com" required><p class="error-text" id="cem2_err"></p></div>
     </div>
-    <div class="field"><label for="phone">Contact Phone*</label><input id="phone" type="tel" placeholder="(555) 555-5555" required><p class="error-text" id="phone_err"></p></div>
+    <div class="field"><label for="phone">Contact Phone*</label>
+	<input id="phone" type="tel" placeholder="(555) 555-5555"  maxlength="10" required><p class="error-text" id="phone_err"></p></div>
     <p class="small muted" id="chosen" style="margin-top:.5rem">No plan selected yet.</p>
   </form>
   <div class="divider"></div>
@@ -97,7 +98,9 @@
         </select>
       </div>
     </div>
-    <div class="field"><label for="zip">Zip Code*</label><input id="zip" type="text" inputmode="numeric" pattern="\d{5}" placeholder="12345" required></div>
+	
+    <div class="field"><label for="zip">Zip Code*</label>
+<input id="zip" type="text" inputmode="numeric" pattern="\d{5}" placeholder="12345" maxlength="8" required></div>
   </form>
   <h2>Payment Details</h2>
   <form id="paymentForm" class="card" style="padding:1rem">
@@ -107,7 +110,8 @@
     </div>
     <div class="two">
       <div class="field"><label for="exp">Expiration Date* <span class="muted small">(MM/YY)</span></label><input id="exp" type="text" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" required></div>
-      <div class="field"><label for="cvv">CVV Code*</label><input id="cvv" type="text" inputmode="numeric" autocomplete="cc-csc" placeholder="XXX" required></div>
+      <div class="field"><label for="cvv">CVV Code*</label>
+	  <input id="cvv" type="text" inputmode="numeric" autocomplete="cc-csc" placeholder="XXX" maxlength="3"  required></div>
     </div>
     
 	
@@ -173,6 +177,8 @@
   // Input masks
   const cc=document.getElementById('ccnum'); if(cc){ cc.addEventListener('input', ()=>{ let v=cc.value.replace(/[^0-9]/g,'').slice(0,16); cc.value=v.replace(/(\d{4})(?=\d)/g,'$1-'); }); }
   const exp=document.getElementById('exp'); if(exp){ exp.addEventListener('input', ()=>{ let v=exp.value.replace(/[^0-9]/g,'').slice(0,4); if(v.length>=3) v=v.slice(0,2)+'/'+v.slice(2); exp.value=v; }); }
+
+ const ph=document.getElementById('phone'); if(ph){ ph.addEventListener('input', ()=>{ let v=ph.value.replace(/[^0-9]/g,'').slice(0,10); ph.value=v.replace(/(\d{10})(?=\d)/g,'$1-'); }); }
 
   // Submit -> validate contact fields -> review
   document.getElementById('paymentForm').addEventListener('submit', e=>{
