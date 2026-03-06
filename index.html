@@ -36,12 +36,12 @@
       <form id="loginForm" novalidate>
         <div class="field">
           <label for="email">User Name<span aria-hidden="true">*</span></label>
-          <input  style="width:93%" id="email" name="email" type="email" inputmode="email" autocomplete="username" required placeholder="Enter user Name" />
+          <input  style="width:93%" id="email" name="email" type="email" inputmode="email" autocomplete="username"  maxlength="50" required placeholder="Enter user Name" />
         </div>
         <div class="field">
           <label for="password">Password<span aria-hidden="true">*</span></label>
           <div class="password-wrap">
-            <input id="password" name="password" type="password" autocomplete="current-password" minlength="1" required />
+            <input id="password" name="password" type="password" autocomplete="current-password" minlength="6" maxlength="30" required />
             <button type="button" class="link" id="togglePw" aria-controls="password" aria-pressed="false">Show</button>
           </div>
         </div>
